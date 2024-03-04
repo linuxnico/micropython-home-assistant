@@ -120,14 +120,14 @@ DEFAULT_TIMEOUT = 5
 
 
 class HomeAssistant(object):
-    def __init__(self, base_url, api_password=None, timeout=None):
+    def __init__(self, base_url, token=None, timeout=None):
         assert base_url[-1] != '/', 'Host should not end with a /'
         self._base_url = base_url + '/api/'
 
-        if api_password is None:
+        if token is None:
             self._headers = None
         else:
-            self._headers = {'X-HA-access': api_password}
+            self._headers = {'Authentication': "bearer " + token}
 
         if timeout is None and SUPPORT_TIMEOUT:
             timeout = DEFAULT_TIMEOUT

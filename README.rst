@@ -21,7 +21,7 @@ API
 
 Constructor:
 
-- ``HomeAssistant(host_url, api_password=None, timeout=None)``
+- ``HomeAssistant(host_url, token=None, timeout=None)``
 
 Methods:
 
@@ -35,7 +35,7 @@ Methods:
 .. code-block:: python
 
     from homeassistant import HomeAssistant
-    hass = HomeAssistant('http://127.0.0.1:8123', 'my_password')
+    hass = HomeAssistant('http://127.0.0.1:8123', 'my_api_token')
     states = hass.states()
     state = states[0]
     print("State %s is %s" % (state['entity_id'], state['state']))
